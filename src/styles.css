@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+header {
+  color: rgb(255, 255, 255);
+  background-color: rgb(7, 49, 214);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.content {
+  padding: 32px;
+}
+
+.form-group {
+  align-items: center;
+}
+
+.mat-toolbar {
+  justify-content: space-between;
+}
+
+.nav.nav-items {
+  text-align: center;
+}
+
+.form-container {
+  display: block;
+  max-width: 500px;
+  background-color: rgb(230, 208, 255);
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+
+}
+
+.form-container mat-form-field {
+  width: 100%;
+}
+
+.table,th,td,tr{
+  border: 1px solid grey;
+  text-align: center;
+}
+
+
+.center {
+  width:100%;
+}
+
+.mat-tab-group {
+  align-items: center;
+
+}

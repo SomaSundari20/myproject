@@ -1,0 +1,177 @@
+<br>
+<br>
+
+<form [formGroup]="infoForm">
+
+  <div class="content">
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder=" Institution Name" formControlName="name" name="name">
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder=" Institution Category" formControlName="cat" name="cat">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder=" Institution type" formControlName="type" name="type">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="R-number" formControlName="rnum" name="rnum">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder=" Institution Level" formControlName="level" name="level">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Head of the Institution" formControlName="hname" name="hname">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+
+        <mat-form-field class="center">
+          <input matInput placeholder="Head of institution phone" formControlName="hphone" name="hphone">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-3">
+        <mat-form-field class="center">
+          <input matInput type="month" placeholder="Academic year" formControlName="cdate" name="cdate">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Office-number" formControlName="ophone" name="ophone">
+        </mat-form-field>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Office Phone Number2" formControlName="phone" name="phone">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Office-Email" formControlName="offemail" name="offemail">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Institution Address" formControlName="add" name="add">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Address2" formControlName="add2" name="add2">
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-form-field class="center">
+      <input matInput placeholder="Taluk-District-State" formControlName="tds" name="tds">
+    </mat-form-field>
+    <mat-form-field class="center">
+      <input matInput placeholder="Pincode" formControlName="pin" name="pin">
+    </mat-form-field>
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Reffered By" formControlName="refer" name="refer">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Reffered Phone" formControlName="referphone" name="referphone">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder="Zonal" formControlName="zone" name="zone">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-3">
+        <mat-form-field class="center">
+          <input matInput placeholder="Longtitude" formControlName="long" name="long">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-3">
+        <mat-form-field class="center">
+          <input matInput placeholder="Latitude" formControlName="lat" name="lat">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="center">
+      
+      <mat-form-field class="center">
+       <textarea matInput placeholder="Description" formControlName="description" name="description"></textarea>
+      </mat-form-field>
+    </div>
+    <mat-checkbox color="primary" formControlName="active">Is active</mat-checkbox>
+    <br>
+
+
+    <div class="row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-2">
+        <button mat-raised-button color="primary" (click)="save()" [disabled]="!infoForm.valid">Save</button>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+    <br><br>
+    <table class="table">
+      <tr>
+        <th>Institution Name</th>
+        <th>Institution Category</th>
+        <th>Rnumber</th>
+        <th>Institution Level</th>
+        <th>Institution HeadName</th>
+        <th>HeadPhone</th>
+        <th>Office Number</th>
+        <th>Place</th>
+        <th>Reffer Name</th>
+        <th>Zonal</th>
+      </tr>
+      <tr *ngFor="let obj of myinfo">
+        <td>{{obj.name}}</td>
+        <td>{{obj.cat}}</td>
+        <td>{{obj.rnum}}</td>
+        <td>{{obj.level}}</td>
+        <td>{{obj.hname}}</td>
+        <td>{{obj.hphone}}</td>
+        <td>{{obj.ophone}}</td>
+        <td>{{obj.tds}}</td>
+        <td>{{obj.refer}}</td>
+        <td>{{obj.zone}}</td>
+        <td><button mat-icon-button color="primary" (click)="delete()">Delete</button></td>
+      </tr>
+    </table>
+    <div class="row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-4">
+        <button mat-raised-button color="primary" (click)="Save()">Save</button>&nbsp;
+        <button mat-raised-button color="primary" routerLink="/homeinfo">Back</button>
+      </div>
+
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+</form>

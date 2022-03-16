@@ -1,0 +1,69 @@
+<br>
+<br>
+<form [formGroup]="contactForm">
+  <div class="content">
+
+    <div class="col-sm-6">
+      <div class="row">
+
+
+        <mat-form-field class="center">
+          <input matInput placeholder=" Contact Name" formControlName="cname" name="cname">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput placeholder=" Contact Phone" formControlName="cphone" name="cphone">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput placeholder=" Contact Email" formControlName="cemail" name="cemail">
+        </mat-form-field>
+
+        <mat-form-field class="center">
+          <input matInput placeholder="Designation" name="designation" formControlName="designation">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput placeholder=" Contact Status" formControlName="cstatus" name="cstatus">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput type="date" placeholder=" Created date" name="cdate" formControlName="cdate">
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-2">
+        <button mat-raised-button color="primary" [disabled]="!contactForm.valid" (click)="save()">Save</button>
+      </div>
+      <div class="col-sm-6"></div>
+    </div><br><br>
+    <table class="table">
+      <tr>
+        <th>Conatct Name</th>
+        <th>Contact phone</th>
+        <th>Contact email</th>
+        <th>Designation</th>
+        <th>Contact Status</th>
+        <th>Created date</th>
+      </tr>
+      <tr *ngFor="let obj of mycontact">
+        <td>{{obj.cname}}</td>
+        <td>{{obj.cphone}}</td>
+        <td>{{obj.cemail}}</td>
+        <td>{{obj.designation}}</td>
+        <td>{{obj.cstatus}}</td>
+        <td>{{obj.cdate}}</td>
+       <td><button mat-icon-button color="primary" (click)="delete()" >Delete</button></td>
+      </tr>
+    
+    </table>
+    <div class="row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-4">
+        <button mat-raised-button color="primary" (click)="Save()">Save</button>&nbsp;
+        <button mat-raised-button color="primary" routerLink="/homecontact">Back</button>
+      </div> 
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+
+</form>

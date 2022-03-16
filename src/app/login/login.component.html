@@ -1,0 +1,26 @@
+<br><br><br>
+<form [formGroup]="loginForm">
+  <div class="form-container" autocomplete="off">
+    <div class="button"><h2>Login</h2></div>
+    <mat-form-field>
+      <input matInput color="primary" placeholder="Enter Email" formControlName="email" name="email">
+    </mat-form-field><br>
+    <br>
+    <mat-form-field>
+      <input matInput color="primary" placeholder="Enter Password" type="password" formControlName="password"
+        name="password">
+    </mat-form-field>
+    <br><br>
+    <div class="button">
+      <button mat-raised-button color="primary" (click)="onLogin()">
+        Login
+      </button>
+    </div>
+    <br>
+    <br><br>
+  </div>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+</form>

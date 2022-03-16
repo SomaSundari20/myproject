@@ -1,0 +1,53 @@
+<br>
+<br>
+<form [formGroup]="documentForm">
+  <div class="content">
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="center">
+          <input matInput placeholder=" Document Name" formControlName="dname" name="dname">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput type="url" placeholder="OneDrive URL" formControlName="durl" name="durl">
+        </mat-form-field>
+
+        <mat-form-field class="center">
+          <input matInput type="date" placeholder=" Created date" formControlName="cdate" name="cdate">
+        </mat-form-field>
+      </div>
+
+    </div><br><br>
+    <div class="row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-2">
+        <button mat-raised-button color="primary" [disabled]="!documentForm.valid" (click)="save()">Save</button>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+    <br><br>
+
+  </div>
+  <div class="Table">
+    <table class="table">
+      <tr>
+        <th> Document Name</th>
+        <th> Document Url</th>
+        <th> Created Date</th>
+      </tr>
+      <tr *ngFor="let obj of mydocument">
+        <td>{{obj.dname}}</td>
+        <td>{{obj.durl}}</td>
+        <td>{{obj.cdate}}</td>
+        <td><button mat-icon-button color="primary" (click)="delete()">Delete</button></td>
+      </tr>
+    </table>
+    <div class="row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-4">
+        <button mat-raised-button color="primary" (click)="Save()">Save</button>&nbsp;
+        <button mat-raised-button color="primary" routerLink="/homedocument">Back</button>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+</form>
