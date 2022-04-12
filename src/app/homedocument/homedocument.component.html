@@ -1,2 +1,27 @@
 <br><br>
-<button mat-raised-button color="primary" routerLink="/document">Add</button>
+<ng-container>
+  <button mat-raised-button color="primary" routerLink="/document">Add</button>
+</ng-container>
+
+<div class="container">
+  <div class="content">
+    <table class="table">
+      <tr>
+        <th> Document Name</th>
+        <th> Document Url</th>
+        <th> Created Date</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><button mat-button color="primary">
+            <mat-icon>update</mat-icon>
+          </button>
+          <button mat-button color="primary">
+            <mat-icon>delete</mat-icon>
+          </button></td>
+      </tr>
+    </table>
+  </div>
+</div>

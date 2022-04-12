@@ -12,4 +12,5 @@ export class HomeinfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }

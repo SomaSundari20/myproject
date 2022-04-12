@@ -30,4 +30,8 @@ saveNote(note : any[]){
   const tk = this._auth.getToken();
   return this._httpClient.post("https://httpsignup-69c32-default-rtdb.firebaseio.com/notes/data.json",note)
 }
+getcontact(contact : any[]){
+  const tk = this._auth.getToken();
+  return this._httpClient.get("https://httpsignup-69c32-default-rtdb.firebaseio.com/contact/data.json? auth="+tk)
+}
 }
