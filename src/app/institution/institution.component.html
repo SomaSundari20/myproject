@@ -1,0 +1,59 @@
+<mat-toolbar color="primary">
+  Institution Details
+  <button mat-icon-button (click)="onBack()">X</button>
+</mat-toolbar>
+<nav>
+  <div class="conatiner">
+    <div class="form-control">
+      <div class="row">
+        <div class="form-group">
+          <mat-toolbar class="tab">
+            <mat-tab-group>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <a routerLink="/homeinfo">
+                    <mat-icon>info</mat-icon>
+                    <button mat-button> Info</button>
+                  </a>
+                </ng-template>
+              </mat-tab>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <a routerLink="/homeupdate">
+                    <mat-icon>update</mat-icon>
+                    <button mat-button> Update</button>
+                  </a>
+                </ng-template>
+              </mat-tab>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <a routerLink="/homecontact">
+                    <mat-icon>person</mat-icon>
+                    <button mat-button> Contact</button>
+                  </a>
+                </ng-template>
+              </mat-tab>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <a routerLink="/homedocument">
+                    <mat-icon>attachment</mat-icon>
+                    <button mat-button> Document</button>
+                  </a>
+                </ng-template>
+              </mat-tab>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <a routerLink="/homenotes">
+                    <mat-icon>notes</mat-icon>
+                    <button mat-button> Notes</button>
+                  </a>
+                </ng-template>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-toolbar>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</nav>

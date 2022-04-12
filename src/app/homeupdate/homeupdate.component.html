@@ -1,34 +1,38 @@
-<br><br>
-<button mat-raised-button color="primary" routerLink="/update">Add</button>
+<br><button mat-raised-button color="primary" routerLink="/update">Add</button>
 <div class="container">
   <div class="content">
-    <table class="table">
-      <tr>
-        <th>Year</th>
-        <th>Is visited</th>
-        <th>PPT Presented</th>
-        <th>Cash Received</th>
-        <th>Response</th>
-        <th>Headname</th>
-        <th>Process Status</th>
-        <th>Created Date</th>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td><button mat-button color="primary">
-            <mat-icon>update</mat-icon>
-          </button>
-          <button mat-button color="primary">
-            <mat-icon>delete</mat-icon>
-          </button></td>
-      </tr>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Is visited</th>
+          <th>PPT Presented</th>
+          <th>Cash Received</th>
+          <th>Response</th>
+          <th>Headname</th>
+          <th>Process Status</th>
+          <th>Created Date</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of update">
+          <td>{{obj.year}}</td>
+          <td>{{obj.visit}}</td>
+          <td>{{obj.ppt}}</td>
+          <td>{{obj.cash}} </td>
+          <td>{{obj.response}} </td>
+          <td>{{obj.hname}} </td>
+          <td>{{obj.status}} </td>
+          <td>{{obj.date}} </td>
+          <td><button mat-button color="primary" a [routerLink]="['/update',obj.id]">
+              <mat-icon>update</mat-icon>
+            </button>
+            <button mat-button color="primary" (click)="delete(obj.id)">
+              <mat-icon>delete</mat-icon>
+            </button></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

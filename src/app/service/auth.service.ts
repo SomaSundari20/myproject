@@ -1,50 +1,76 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { Router } from '@angular/router';
-import firebase from 'firebase/app';
+
 import 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
- 
+
   currentToken: string | any;
   constructor(private router: Router) { }
-  
+
 
   LoginUser(email: string, password: string) {
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(res => {
-        this.router.navigate(['/homeinfo'])
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        this.router.navigate(['/homeinside'])
         this.getToken()
+        alert(" Login Successfully")
       })
-      .catch(error => {
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
         console.log(error)
-      })
+        alert("Login Failed..Invalid Username or Password")
+      });
   }
 
   getToken() {
-    firebase.auth().currentUser?.getIdToken()
-      .then(
-        (token: string | any) => {
-          this.currentToken = token;
-        }
-      )
-      .catch(error => {
-        console.log(error)
-      })
+
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        user.getIdToken().then((token: any) => {
+          this.currentToken = token
+        }).catch((error) => {
+          console.log(error)
+        })
+
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+
+    // firebase.auth().currentUser?.getIdToken()
+    //   .then(
+    //     (token: string | any) => {
+    //       this.currentToken = token;
+    //     }
+    //   )
+    //   .catch((error: any) => {
+    //     console.log(error)
+    //   })
   }
 
   isauthenticated() {
     return this.currentToken != null ? true : false;
   }
 
-  onLogout(){
+  onLogout() {
     this.router.navigate(['']);
-    firebase.auth().signOut();
+    // firebase.auth().signOut();
     this.currentToken = null;
   }
 }

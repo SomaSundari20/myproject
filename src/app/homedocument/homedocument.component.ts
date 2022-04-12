@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-homedocument',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomedocumentComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _document: DataService) { }
 
+  document: any
   ngOnInit(): void {
+
+    this.getallData()
+  }
+  delete(id: any) {
+    console.log(id, 'deleteid==>')
+    this._document.deletedocument(id).subscribe((res) => {
+      console.log(res, 'deleteres=>')
+      alert("Data Deleted Successfully..!")
+
+    }) 
+    this.getallData()
   }
 
+  getallData() {
+    this._document.getdocument().subscribe((res) => {
+      console.log(res)
+      this.document = res.data
+    })
+  }
 }

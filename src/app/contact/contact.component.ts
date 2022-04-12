@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../service/data.service';
+import { Database, set, ref, onValue } from '@angular/fire/database';
 
 @Component({
   selector: 'app-contact',
@@ -10,59 +12,73 @@ import { DataService } from '../service/data.service';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private router: Router, public _contact: DataService) { }
+  constructor(private router: Router, public _contact: DataService, public rout: ActivatedRoute) { }
+
+  getparamid: any
 
   mycontact: any[] = [];
 
   ngOnInit(): void {
+
+    this.getparamid = this.rout.snapshot.paramMap.get('id');
+    this._contact.getsinglecontact(this.getparamid).subscribe((res) => {
+      console.log(res, 'res==>');
+      this.contactForm.patchValue({
+        name: res.data[0].name,
+        email: res.data[0].email,
+        phone: res.data[0].phone,
+        designation: res.data[0].designation,
+        status: res.data[0].status,
+        date: res.data[0].date,
+      })
+    })
   }
 
   contactForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', Validators.required),
     designation: new FormControl(''),
-    cname: new FormControl('', Validators.required),
-    cphone: new FormControl('', Validators.required),
-    cemail: new FormControl('', Validators.email),
-    cstatus: new FormControl('', Validators.required),
-    cdate: new FormControl('')
+    status: new FormControl(''),
+    date: new FormControl('')
+
   })
 
 
 
-  save() {
-    const cname = this.contactForm.get('cname')?.value;
-    const cemail = this.contactForm.get('cemail')?.value;
-    const designation = this.contactForm.get('designation')?.value;
-    const cphone = this.contactForm.get('cphone')?.value;
-    const cstatus = this.contactForm.get('cstatus')?.value;
-    const cdate = this.contactForm.get('cdate')?.value;
+  Save(value: any) {
 
-
-    this.mycontact.push(
-      {
-        cname: cname,
-        cemail: cemail,
-        designation: designation,
-        cphone: cphone,
-        cstatus: cstatus,
-        cdate: cdate
-      }
-    )
-    this.contactForm.reset();
-  }
-  Save() {
-    this._contact.saveContact(this.mycontact)
-      .subscribe((sub: any) => {
+    if (this.contactForm.valid) {
+      console.log(this.contactForm.value);
+      this._contact.createcontact(this.contactForm.value).subscribe((res: any) => {
+        console.log(res)
+        this.contactForm.reset()
+        alert ("Saved Successfully..")
         this.router.navigate(['/homecontact'])
-        this.contactForm.reset();
-     
-      },
-        (error: any) => {
-          console.log(error)
-        }
-      );
+      })
+    }
+    else {
+      console.log(" Required")
+    }
+
   }
 
-  delete() {
-    this.mycontact.pop()
+  update() {
+    console.log(this.contactForm.value, 'updated')
+
+    if (this.contactForm.valid) {
+      this._contact.updatecontact(this.contactForm.value, this.getparamid).subscribe((res) => {
+        console.log(res, 'resupdated..');
+        alert ("Updated Successfully..")
+        this.router.navigate(['/homecontact'])
+      })
+
+    }
   }
+
+  onBack() {
+    this.router.navigate(['/homecontact'])
+  }
+
+
 }

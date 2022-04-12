@@ -1,43 +1,45 @@
-<br><br>
-
+<br>
 <ng-container>
   <button mat-raised-button color="primary" routerLink="/info">Add</button>
 </ng-container>
 <div class="container">
   <div class="content">
-    <table class="table">
-      <tr>
-        <th>Institution Name</th>
-        <th>Institution Category</th>
-        <th>Rnumber</th>
-        <th>Institution Level</th>
-        <th>Institution HeadName</th>
-        <th>HeadPhone</th>
-        <th>Office Number</th>
-        <th>Place</th>
-        <th>Reffer Name</th>
-        <th>Zonal</th>
-        
-        <th>delete </th>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button mat-button color="primary">
-            <mat-icon>update</mat-icon>
-          </button>
-          <button mat-button color="primary">
-            <mat-icon>delete</mat-icon>
-          </button></td>
-      </tr>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Institution Name</th>
+          <th>Institution Category</th>
+          <th>Rnumber</th>
+          <th>Institution Level</th>
+          <th>Institution HeadName</th>
+          <th>HeadPhone</th>
+          <th>Office Number</th>
+          <th>Place</th>
+          <th>Reffer Name</th>
+          <th>Zonal</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of info">
+          <td>{{obj.name}} </td>
+          <td>{{obj.cat}}</td>
+          <td>{{obj.rnum}}</td>
+          <td>{{obj.level}}</td>
+          <td>{{obj.hname}}</td>
+          <td>{{obj.phone}}</td>
+          <td>{{obj.ophone}}</td>
+          <td>{{obj.tds}}</td>
+          <td>{{obj.refer}}</td>
+          <td>{{obj.zone}}</td>
+          <td><button mat-button color="primary" a [routerLink]="['/info',obj.id]">
+              <mat-icon>update</mat-icon>
+            </button>
+            <button mat-button color="primary" (click)="delete(obj.id)">
+              <mat-icon>delete</mat-icon>
+            </button></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

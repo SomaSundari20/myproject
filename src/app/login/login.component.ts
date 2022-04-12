@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -10,10 +11,13 @@ import { AuthService } from '../service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _auth : AuthService) { }
+  constructor(private _auth : AuthService, public dialog : MatDialog) { }
 
   loginForm : FormGroup | any;
   ngOnInit(): void {
+
+    
+
     this. loginForm = new FormGroup({
       email : new FormControl(null,[Validators.required,Validators.email]),
       password : new FormControl(null,Validators.required)
@@ -29,6 +33,7 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password')?.value;
     this._auth.LoginUser(email, password)
 
+    
   }
 
  

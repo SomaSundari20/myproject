@@ -38,7 +38,10 @@ header {
   border: 1px solid grey;
   text-align: center;
 }
-
+.footer {
+  position: fixed;
+  bottom: 0;
+  }
 
 .center {
   width:100%;

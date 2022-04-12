@@ -2,3 +2,38 @@
    justify-content: center;
 }
 
+mat-sidenav{
+   margin: 10px;
+   width: 300px;
+   background-color: #673ab7;
+   color: rgb(251, 251, 251);
+   border-radius: 5px;
+   padding: 20px;
+   text-align: center;
+
+}
+
+mat-sidenav-container{
+   height: calc(100vh - 75px);
+}
+.menu-button{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   font-size: 1rem;
+}
+.content{
+   
+   margin: 16px;
+   display: flex;
+
+   align-items: center;
+}
+.menu{
+   justify-content: left;
+}
+
+mat-icon{
+   width: 45px;
+}

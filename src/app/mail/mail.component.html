@@ -1,0 +1,31 @@
+<html>
+<div class="container">
+  <mat-toolbar>Contact Us
+    <button mat-icon-button (click)="onBack()">X</button>
+  </mat-toolbar>
+
+  <form action="https://formspree.io/f/meqnllwj" method="POST" [formGroup]="contactForm">
+    <br><br>
+    <mat-form-field class="center"> <input matInput type="name" name="name" placeholder="Name" formControlName="name">
+    </mat-form-field><br>
+    <mat-form-field class="center"> <input matInput type="name" name="phone" placeholder="Contact Number"
+        formControlName="phone">
+    </mat-form-field><br>
+    <mat-form-field class="center"> <input matInput type="email" name="email" placeholder="Email"
+        formControlName="email">
+    </mat-form-field> <br>
+    <mat-form-field class="center"> <input matInput type="name" name="Place" placeholder="Place"
+        formControlName="Place">
+    </mat-form-field><br>
+    <mat-form-field class="center"> <textarea matInput name="message" placeholder="Message"
+        formControlName="Message"></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit"
+      (click)="register(contactForm.value)">Send</button>&nbsp;&nbsp;
+
+  </form>
+
+</div>
+
+</html>

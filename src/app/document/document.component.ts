@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../service/data.service';
+import { Database, set, ref, onValue } from '@angular/fire/database';
 
 @Component({
   selector: 'app-document',
@@ -10,52 +11,63 @@ import { DataService } from '../service/data.service';
 })
 export class DocumentComponent implements OnInit {
 
-  mydocument: any[] = [];
+  getparamid: any;
 
-  constructor(private router:Router,public _document:DataService) { }
+  constructor(private router: Router, public _document: DataService, public rout: ActivatedRoute) { }
 
 
 
   ngOnInit(): void {
+    this.getparamid = this.rout.snapshot.paramMap.get('id');
+    this._document.getsingledocument(this.getparamid).subscribe((res) => {
+      console.log(res, 'res==>');
+      this.documentForm.patchValue({
+        name: res.data[0].name,
+        url: res.data[0].url,
+        date: res.data[0].date
+      })
+    })
   }
 
   documentForm = new FormGroup({
-    dname: new FormControl('', Validators.required),
-    durl: new FormControl('', Validators.required),
-    cdate: new FormControl('')
+    name: new FormControl('', Validators.required),
+    url: new FormControl('', Validators.required),
+    date: new FormControl('')
   })
 
-  Save(){
-    this._document.saveDocument(this.mydocument)
-    .subscribe((sub: any) => {
-      this.router.navigate(['/homedocument'])
-      this.documentForm.reset();
-      
-    },
-      (error: any) => {
-        console.log(error)
-      }
-    );
+  Save(value: any) {
+    if (this.documentForm.valid) {
+      console.log(this.documentForm.value);
+      this._document.createdocument(this.documentForm.value).subscribe((res: any) => {
+        console.log(res)
+        this.documentForm.reset()
+        alert ("Saved Successfully..")
+        this.router.navigate(['/homedocument'])
+      })
+    }
+    else {
+      alert(" Required ")
+    }
+
+
+
   }
 
-  save() {
-    
-    const dname = this.documentForm.get('dname')?.value;
-    const durl = this.documentForm.get('durl')?.value;
-    const cdate = this.documentForm.get('cdate')?.value;
+  onBack() {
+    this.router.navigate(['/homedocument'])
+  }
+  update() {
+    console.log(this.documentForm.value, 'updated')
 
-    this.mydocument.push(
-      {
-        dname : dname,
-        durl : durl,
-        cdate : cdate
-      }
-    )
+    if (this.documentForm.valid) {
+      this._document.updatedocument(this.documentForm.value, this.getparamid).subscribe((res) => {
+        console.log(res, 'resupdated..');
+        alert ("Updated Successfully..")
+        this.router.navigate(['/homedocument'])
+      })
 
-    this.documentForm.reset()  }
+    }
 
-  delete(){
-    this.mydocument.pop()
   }
 
 }
