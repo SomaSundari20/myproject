@@ -2,10 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyparser = require('body-parser');
 const mysql = require('mysql2');
-const { get } = require('express/lib/response');
-const req = require('express/lib/request');
-const res = require('express/lib/response');
-const { application } = require('express');
+
 
 
 
