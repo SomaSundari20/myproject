@@ -1,4 +1,4 @@
-<ng-template [ngIf]="!_auth.isauthenticated()">
+<ng-template [ngIf]="_auth.isauthenticated()">
   <mat-toolbar class="menu" color="primary">
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
       <mat-icon *ngIf="!sidenav.opened">
@@ -50,9 +50,9 @@
     </div>
   </mat-toolbar> -->
 
-<ng-template [ngIf]="_auth.isauthenticated()">
-  <mat-toolbar class="menu">
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+<ng-template [ngIf]="!_auth.isauthenticated()">
+  <mat-toolbar class="menu" color="primary">
+    <button mat-icon-button (click)="toggle(sidenav)">
       <mat-icon *ngIf="!sidenav.opened">
         menu
       </mat-icon>
@@ -63,17 +63,53 @@
   </mat-toolbar>
 
   <mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav" opened>
+    <mat-sidenav #sidenav opened mode="side">
 
       <button mat-button class="menu-button" (click)="onhome()">
         <mat-icon> home</mat-icon>
         <span>Home</span>
       </button><br>
-      <button mat-button class="menu-button" (click)="oninstitution()">
-        <mat-icon>school</mat-icon>
-        <span>Institution</span>
+      <button mat-button [matMenuTriggerFor]="institute" class="menu-button">
+        <mat-icon>school</mat-icon>Add Insititution
+      </button>
+      <mat-menu #institute="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="institution">Institution</button>
+      </mat-menu>
 
-      </button><br>
+      <mat-menu #institution="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="info">Info</button>
+        <button mat-menu-item [matMenuTriggerFor]="update">Update</button>
+        <button mat-menu-item [matMenuTriggerFor]="contact">Contact</button>
+        <button mat-menu-item [matMenuTriggerFor]="document">Document</button>
+        <button mat-menu-item [matMenuTriggerFor]="notes">Notes</button>
+      </mat-menu>
+
+
+      <mat-menu #info="matMenu">
+        <button mat-menu-item routerLink="/homeinfo">View</button>
+        <button mat-menu-item routerLink="/info">Add Info</button>
+      </mat-menu>
+
+      <mat-menu #update="matMenu">
+        <button mat-menu-item routerLink="/homeupdate">View</button>
+        <button mat-menu-item routerLink="/update">Add Year update</button>
+      </mat-menu>
+
+      <mat-menu #document="matMenu">
+        <button mat-menu-item routerLink="/homedocument">View</button>
+        <button mat-menu-item routerLink="/document">Add Document</button>
+      </mat-menu>
+
+      <mat-menu #contact="matMenu">
+        <button mat-menu-item routerLink="/homecontact">View</button>
+        <button mat-menu-item routerLink="/contact">Add Contact</button>
+      </mat-menu>
+
+      <mat-menu #notes="matMenu">
+        <button mat-menu-item routerLink="/homenotes">View</button>
+        <button mat-menu-item routerLink="/notes">Add notes</button>
+      </mat-menu>
+      <br>
       <!-- <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/old">Old Student</button>
@@ -94,7 +130,7 @@
 
     </mat-sidenav>
     <mat-sidenav-content>
-  
+
       <div class="content">
         <router-outlet></router-outlet>
       </div>

@@ -1,38 +1,65 @@
-<br><button mat-raised-button color="primary" routerLink="/update">Add</button>
-<div class="container">
-  <div class="content">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Year</th>
-          <th>Is visited</th>
-          <th>PPT Presented</th>
-          <th>Cash Received</th>
-          <th>Response</th>
-          <th>Headname</th>
-          <th>Process Status</th>
-          <th>Created Date</th>
-          <th>Update</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let obj of update">
-          <td>{{obj.year}}</td>
-          <td>{{obj.visit}}</td>
-          <td>{{obj.ppt}}</td>
-          <td>{{obj.cash}} </td>
-          <td>{{obj.response}} </td>
-          <td>{{obj.hname}} </td>
-          <td>{{obj.status}} </td>
-          <td>{{obj.date}} </td>
-          <td><button mat-button color="primary" a [routerLink]="['/update',obj.id]">
-              <mat-icon>update</mat-icon>
-            </button>
-            <button mat-button color="primary" (click)="delete(obj.id)">
-              <mat-icon>delete</mat-icon>
-            </button></td>
-        </tr>
-      </tbody>
+<mat-toolbar color="primary">UpdateForm
+  <div>
+    <button mat-raised-button routerLink="/homein">X</button>
+  </div>
+</mat-toolbar>
+<div class="content">
+  <ng-container>
+    <button mat-raised-button color="primary" routerLink="/update">Add</button>
+  </ng-container><br><br>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="update">
+
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef>Year</th>
+        <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="visit">
+        <th mat-header-cell *matHeaderCellDef> Visit</th>
+        <td mat-cell *matCellDef="let element"> {{element.visit}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ppt">
+        <th mat-header-cell *matHeaderCellDef> PPT </th>
+        <td mat-cell *matCellDef="let element"> {{element.ppt}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cash">
+        <th mat-header-cell *matHeaderCellDef> Cash </th>
+        <td mat-cell *matCellDef="let element"> {{element.cash}} </td>
+      </ng-container>
+      <ng-container matColumnDef="response">
+        <th mat-header-cell *matHeaderCellDef> Response </th>
+        <td mat-cell *matCellDef="let element"> {{element.response}} </td>
+      </ng-container>
+      <ng-container matColumnDef="hname">
+        <th mat-header-cell *matHeaderCellDef> Head name </th>
+        <td mat-cell *matCellDef="let element"> {{element.hname}} </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Created Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Modify </th>
+        <td mat-cell *matCellDef="let obj">
+          <button mat-button color="primary" a [routerLink]="['/update',obj.id]">
+            <mat-icon>update</mat-icon>
+          </button>
+          <button mat-button color="primary" (click)="delete(obj.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
 </div>

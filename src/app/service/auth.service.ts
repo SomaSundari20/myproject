@@ -21,7 +21,7 @@ export class AuthService {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        this.router.navigate(['/homeinside'])
+        this.router.navigate(['/homein'])
         this.getToken()
         alert(" Login Successfully")
       })

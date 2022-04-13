@@ -12,7 +12,8 @@ import { DataService } from '../service/data.service';
 })
 export class HomeinfoComponent implements OnInit {
 
-  constructor(public router: Router, public dialog: MatDialog, public _info: DataService) { }
+  displayedColumns: string[] = ['position', 'name', 'rnum','level','hname','hphone','ophone','place','refer' ,'zone', 'symbol'];
+    constructor(public router: Router, public dialog: MatDialog, public _info: DataService) { }
 
   info: any
   ngOnInit(): void {

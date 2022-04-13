@@ -10,6 +10,8 @@ export class HomenotesComponent implements OnInit {
 
   notes: any
   constructor(public _notes: DataService) { }
+  displayedColumns: string[] = ['position', 'name', 'symbol'];
+
 
   ngOnInit(): void {
 

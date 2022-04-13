@@ -52,6 +52,15 @@ export class AppComponent implements OnInit {
     // this.dialog.open(LoginComponent)
     this.router.navigate(['/login'])
   }
+
+  toggle(nav : any ){
+    if (nav.opened){
+      nav.close()
+    }
+    else{
+      nav.open()
+    }
+  }
 }
 
 

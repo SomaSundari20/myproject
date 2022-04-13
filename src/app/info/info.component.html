@@ -1,5 +1,8 @@
-<button mat-raised-button color="primary" (click)="onBack()">X</button>
-<br><br>
+<mat-toolbar color="primary">Info Form
+  <div>
+    <button mat-raised-button routerLink="/homeinfo">X</button>
+  </div>
+</mat-toolbar>
 <form [formGroup]="infoForm">
   <div class="content">
     <div class="row">
@@ -138,7 +141,7 @@
           (click)="Save(infoForm.value)">Save</button> &nbsp;&nbsp;
         <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!infoForm.valid"
           (click)="update()">Update</button>&nbsp;&nbsp;
-  
+
         <button mat-raised-button color="primary" routerLink="/homeinfo">Back</button>
       </div>
       <div class="col-sm-6"></div>

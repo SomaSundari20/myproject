@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { DataService } from '../service/data.service';
 })
 export class HomedocumentComponent implements OnInit {
 
-  constructor(public _document: DataService) { }
+  constructor(public _document: DataService,public router : Router) { }
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
   document: any
   ngOnInit(): void {
@@ -21,7 +23,7 @@ export class HomedocumentComponent implements OnInit {
       console.log(res, 'deleteres=>')
       alert("Data Deleted Successfully..!")
 
-    }) 
+    })
     this.getallData()
   }
 
@@ -31,4 +33,6 @@ export class HomedocumentComponent implements OnInit {
       this.document = res.data
     })
   }
+
+  
 }

@@ -1,30 +1,41 @@
-<br><ng-container>
-  <button mat-raised-button color="primary" routerLink="/notes">Add</button>
-</ng-container>
+<mat-toolbar color="primary">NotesForm
+  <div>
+    <button mat-raised-button routerLink="/homein">X</button>
+  </div>
+</mat-toolbar>
+<div class="content">
+  <ng-container>
+    <button mat-raised-button color="primary" routerLink="/notes">Add</button>
+  </ng-container> <br> <br>
 
-<div class="container">
-  <div class="content">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th> Notes</th>
-          <th> Created Date</th>
-          <th>Update</th>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="notes">
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let obj of notes">
-          <td>{{obj.notes}} </td>
-          <td>{{obj.date}}</td>
-          <td><button mat-button color="primary" a [routerLink]="['/notes',obj.id]">
-              <mat-icon>update</mat-icon>
-            </button>
-            <button mat-button color="primary" (click)="delete(obj.id)">
-              <mat-icon>delete</mat-icon>
-            </button></td>
-        </tr>
-      </tbody>
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Document Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Created Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Modify </th>
+        <td mat-cell *matCellDef="let obj">
+          <button mat-button color="primary" a [routerLink]="['/notes',obj.id]">
+            <mat-icon>update</mat-icon>
+          </button>
+          <button mat-button color="primary" (click)="delete(obj.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
 </div>

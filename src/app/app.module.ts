@@ -37,7 +37,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MailComponent } from './mail/mail.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideDatabase, getDatabase } from '@angular/fire/database'
 import { FormsModule } from '@angular/forms';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { HomeinComponent } from './homein/homein.component';
@@ -50,7 +49,7 @@ import { HomeinsideComponent } from './homeinside/homeinside.component';
 import { HomestuComponent } from './homestu/homestu.component';
 import { OldstuComponent } from './oldstu/oldstu.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import {MatSortModule} from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +99,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDialogModule,
     MatStepperModule,
     MatGridListModule,
+    MatSortModule,
     MatListModule,
     FormsModule,
     MatPaginatorModule,

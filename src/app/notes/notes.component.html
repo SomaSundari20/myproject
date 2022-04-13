@@ -1,14 +1,12 @@
 <form [formGroup]="noteForm">
-  <mat-toolbar>NotesForm
+  <mat-toolbar color="primary">NotesForm
     <div>
-      <button mat-icon-button (click)="onBack()">X</button>
+      <button mat-raised-button routerLink="/homenotes">X</button>
     </div>
   </mat-toolbar>
   <div class="content">
     <div class="row">
-
       <div class="center">
-
         <mat-form-field class="center">
           <textarea matInput placeholder="Notes" formControlName="notes" name="notes"></textarea>
         </mat-form-field>

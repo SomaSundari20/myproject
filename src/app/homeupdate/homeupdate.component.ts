@@ -12,6 +12,7 @@ import { UpdateComponent } from '../update/update.component';
 export class HomeupdateComponent implements OnInit {
 
   constructor(public router: Router, public _update: DataService) { }
+  displayedColumns: string[] = ['year', 'visit', 'ppt','cash','response','hname','status','date','symbol'];
 
   update: any
   ngOnInit(): void {

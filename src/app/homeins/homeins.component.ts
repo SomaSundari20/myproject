@@ -16,9 +16,12 @@ export class HomeinsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(){
+  onClick() {
     this.dialog.open(InstitutionComponent, { width: '100%', height: '100%' })
     this.router.navigate(['/homeinfo'])
+  }
+  onBack() {
+    this.router.navigate(['/homein'])
   }
 
 }
