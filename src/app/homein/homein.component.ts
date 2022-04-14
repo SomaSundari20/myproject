@@ -15,8 +15,11 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 export class HomeinComponent {
 
-  constructor() { }
+  constructor(public dialog : MatDialog,public router : Router) { }
 
- 
+ onClick(){
+   this.dialog.open(InstitutionComponent,{width:'100%',height:'800px'})
+   this.router.navigate(['/homeinfo'])
+ }
 
 }

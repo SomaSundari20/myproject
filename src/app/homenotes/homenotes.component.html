@@ -1,7 +1,4 @@
 <mat-toolbar color="primary">NotesForm
-  <div>
-    <button mat-raised-button routerLink="/homein">X</button>
-  </div>
 </mat-toolbar>
 <div class="content">
   <ng-container>
@@ -9,15 +6,15 @@
   </ng-container> <br> <br>
 
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="notes">
+    <table mat-table [dataSource]="notes" matSort>
 
       <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> Document Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="notes"> Document Name </th>
         <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Created Date </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="date" >Created Date </th>
         <td mat-cell *matCellDef="let element"> {{element.date}} </td>
       </ng-container>
 
@@ -37,5 +34,10 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  </div>
+    <mat-paginator [pageSizeOptions]="[5,10,15]" showFirstLastButtons></mat-paginator>
+  </div><br>
+  <mat-toolbar>
+    <button mat-flat-button color="primary" routerLink="/homedocument">Previous</button>
+ 
+  </mat-toolbar>
 </div>

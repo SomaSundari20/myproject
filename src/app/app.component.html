@@ -1,4 +1,4 @@
-<ng-template [ngIf]="!_auth.isauthenticated()">
+<ng-template [ngIf]="_auth.isauthenticated()">
   <mat-toolbar class="menu" color="primary">
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
       <mat-icon *ngIf="!sidenav.opened">
@@ -50,7 +50,7 @@
     </div>
   </mat-toolbar> -->
 
-<ng-template [ngIf]="_auth.isauthenticated()">
+<ng-template [ngIf]="!_auth.isauthenticated()">
   <mat-toolbar class="menu" color="primary">
     <button mat-icon-button (click)="toggle(sidenav)">
       <mat-icon *ngIf="!sidenav.opened">
@@ -72,7 +72,7 @@
       <button mat-button [matMenuTriggerFor]="institute" class="menu-button">
         <mat-icon>school</mat-icon>Add Insititution
       </button>
-      <mat-menu #institute="matMenu">
+      <mat-menu #institute="matMenu" class="menu-button">
         <button mat-menu-item [matMenuTriggerFor]="institution">Institution</button>
       </mat-menu>
 

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -11,11 +14,16 @@ export class HomenotesComponent implements OnInit {
   notes: any
   constructor(public _notes: DataService) { }
   displayedColumns: string[] = ['position', 'name', 'symbol'];
-
+  @ViewChild(MatSort) sort: Sort | any;
+  @ViewChild(MatPaginator) paginator: MatPaginator | any
 
   ngOnInit(): void {
-
-    this.getallData()
+    this._notes.getnotes().subscribe((res) => {
+      console.log(res)
+      this.notes = new MatTableDataSource(res.data)
+      this.notes.paginator = this.paginator;
+      this.notes.sort = this.sort;
+    })
 
   }
 

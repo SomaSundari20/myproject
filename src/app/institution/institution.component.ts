@@ -17,5 +17,6 @@ export class InstitutionComponent implements OnInit {
     this.dialog.closeAll()
     this.router.navigate(['/homein'])
   }
+ 
 
 }

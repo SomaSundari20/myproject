@@ -2,7 +2,9 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSort, Sort } from '@angular/material/sort';
 import { DataService } from '../service/data.service';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 
 @Component({
@@ -10,23 +12,24 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
   templateUrl: './homecontact.component.html',
   styleUrls: ['./homecontact.component.css']
 })
-export class HomecontactComponent implements AfterViewInit {
-  displayedColumns: string[] = ['Contact Name', 'Contact Phone', 'Contact Email', 'Designation', 'Contact Status', 'Created date', 'Modify'];
+export class HomecontactComponent implements OnInit {
+  displayedColumns: string[] = ['Contact Name', 'Contact Phone', 'Contact Email', 'Designation', 'status', 'Created date', 'Modify'];
   contactForm: any
-
-  constructor(public router: Router, public _contact: DataService, public _liveAnnouncer: LiveAnnouncer) { }
-
   contact: any
+
+  constructor(public router: Router, public _contact: DataService) { }
+
   @ViewChild(MatSort) sort: MatSort | any;
-
-  ngAfterViewInit() {
-   
-  }
-
+  @ViewChild(MatPaginator) paginator: MatPaginator | any ;
 
 
   ngOnInit(): void {
-    this.getallData()
+    this._contact.getcontact().subscribe((res: any) => {
+      this.contact = new MatTableDataSource(res.data);
+      this.contact.paginator = this.paginator;
+      this.contact.sort = this.sort;
+    });
+
 
   }
   delete(id: any) {
@@ -47,17 +50,6 @@ export class HomecontactComponent implements AfterViewInit {
   onClick() {
     this.router.navigateByUrl('/contact')
 
-  }
-  announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
   }
 
 }
