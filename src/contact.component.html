@@ -1,0 +1,46 @@
+<form [formGroup]="contactForm">
+  <mat-toolbar color="primary">Contact Form
+    <div>
+      <button mat-raised-button routerLink="/homecontact">X</button>
+    </div>
+  </mat-toolbar>
+  <div class="content">
+    <div class="col-sm-6">
+      <div class="row">
+        <mat-form-field class="center">
+          <input matInput placeholder=" Contact Name" name="name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput placeholder=" Contact Phone" name="phone" formControlName="phone">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput placeholder=" Contact Email" name="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput placeholder="Designation" name="designation" formControlName="designation">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput placeholder="Contact Status" name="status" formControlName="status">
+        </mat-form-field>
+        <mat-form-field class="center">
+          <input matInput type="date" placeholder=" Created date" name="date" formControlName="date">
+        </mat-form-field>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-2">
+        <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!contactForm.valid"
+          (click)="Save(contactForm.value)">Save</button> &nbsp;&nbsp;
+        <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!contactForm.valid"
+          (click)="update()">Update</button>&nbsp;&nbsp;
+
+        <button mat-raised-button color="primary" routerLink="/homecontact">Back</button>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+
+  </div>
+</form>
