@@ -51,8 +51,7 @@ import { OldstuComponent } from './oldstu/oldstu.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSortModule } from '@angular/material/sort';
-import { FilterPipe } from './pipes/filter.pipe';
-import { SortPipe } from './pipes/sort.pipe';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,8 +75,7 @@ import { SortPipe } from './pipes/sort.pipe';
     HomeinsideComponent,
     HomestuComponent,
     OldstuComponent,
-    FilterPipe,
-    SortPipe,
+
 
 
 
@@ -108,6 +106,7 @@ import { SortPipe } from './pipes/sort.pipe';
     MatListModule,
     MatDatepickerModule,
     FormsModule,
+    MatProgressBarModule,
     MatPaginatorModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth())
