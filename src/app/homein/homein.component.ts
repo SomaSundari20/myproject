@@ -18,8 +18,8 @@ export class HomeinComponent {
   constructor(public dialog : MatDialog,public router : Router) { }
 
  onClick(){
-   this.dialog.open(InstitutionComponent,{width:'100%',height:'800px'})
-   this.router.navigate(['/homeinfo'])
+ 
+   this.router.navigate(['/institution'])
  }
 
 }

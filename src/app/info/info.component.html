@@ -1,151 +1,153 @@
-<mat-toolbar color="primary">Info Form
-  <div>
-    <button mat-raised-button routerLink="/homeinfo">X</button>
-  </div>
-</mat-toolbar>
-<form [formGroup]="infoForm">
-  <div class="content">
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Institution Name" name="name" formControlName="name">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder=" Institution Catergory" name="cat" formControlName="cat">
-        </mat-form-field>
-      </div>
+<div class="mat-elevation-z8">
+  <mat-toolbar color="primary">Info Form
+    <div>
+      <button mat-raised-button routerLink="/institution">X</button>
     </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Institution Type" name="type" formControlName="type">
+  </mat-toolbar>
+  <form [formGroup]="infoForm">
+    <div class="content">
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Institution Name" name="name" formControlName="name">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder=" Institution Catergory" name="cat" formControlName="cat">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Institution Type" name="type" formControlName="type">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="U-Dice Number" name="rnum" formControlName="rnum">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Institution Level" name="level" formControlName="level">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Head of Institution" name="hname" formControlName="hname">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <mat-form-field class="center">
+            <input matInput placeholder="Head of the Institution phone" name="hphone" formControlName="hphone">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-3">
+          <mat-form-field class="center">
+            <input type="year" matInput placeholder="Academic Year" name="date" formControlName="academic">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Office Phone 1" name="ophone" formControlName="ophone">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Office Phone 2" name="phone" formControlName="phone">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Office Email" name="offemail" formControlName="offemail">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Address 1" name="add1" formControlName="add1">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Area Name" name="add2" formControlName="add2">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Taluk-District-State" name="tds" formControlName="tds">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Pincode" name="pin" formControlName="pin">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Referred By" name="refer" formControlName="refer">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Referred By Phone" name="referphone" formControlName="referphone">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Zonal" name="zone" formControlName="zone">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-3">
+          <mat-form-field class="center">
+            <input matInput placeholder="Longitude" name="long" formControlName="longtitude">
+          </mat-form-field>
+        </div>
+        <div class="col-sm-3">
+          <mat-form-field class="center">
+            <input matInput placeholder="Latitude" name="lat" formControlName="latitude">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <textarea matInput placeholder="Description" name="description" formControlName="description"></textarea>
         </mat-form-field>
       </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="U-Dice Number" name="rnum" formControlName="rnum">
-        </mat-form-field>
+      <div class="row">
+        <mat-checkbox formControlName="active" color="primary">Inactive </mat-checkbox>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Institution Level" name="level" formControlName="level">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Head of Institution" name="hname" formControlName="hname">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-3">
-        <mat-form-field class="center">
-          <input matInput placeholder="Head of the Institution phone" name="hphone" formControlName="hphone">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-3">
-        <mat-form-field class="center">
-          <input type="year" matInput placeholder="Academic Year" name="date" formControlName="academic">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Office Phone 1" name="ophone" formControlName="ophone">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Office Phone 2" name="phone" formControlName="phone">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Office Email" name="offemail" formControlName="offemail">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Address 1" name="add1" formControlName="add1">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Address 2" name="add2" formControlName="add2">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Taluk-District-State" name="tds" formControlName="tds">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Pincode" name="pin" formControlName="pin">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Referred By" name="refer" formControlName="refer">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Referred By Phone" name="referphone" formControlName="referphone">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Zonal" name="zone" formControlName="zone">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-3">
-        <mat-form-field class="center">
-          <input matInput placeholder="Longitude" name="long" formControlName="longtitude">
-        </mat-form-field>
-      </div>
-      <div class="col-sm-3">
-        <mat-form-field class="center">
-          <input matInput placeholder="Latitude" name="lat" formControlName="latitude">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <mat-form-field>
-        <textarea matInput placeholder="Description" name="description" formControlName="description"></textarea>
-      </mat-form-field>
-    </div>
-    <div class="row">
-      <mat-checkbox formControlName="active" color="primary">Inactive </mat-checkbox>
-    </div>
 
 
 
-    <div class="row">
-      <div class="col-sm-6"></div>
-      <div class="col-sm-2">
-        <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!infoForm.valid"
-          (click)="Save(infoForm.value)">Save</button> &nbsp;&nbsp;
-        <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!infoForm.valid"
-          (click)="update()">Update</button>&nbsp;&nbsp;
+      <div class="row">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2">
+          <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!infoForm.valid"
+            (click)="Save(infoForm.value)">Save</button> &nbsp;&nbsp;
+          <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!infoForm.valid"
+            (click)="update()">Update</button>&nbsp;&nbsp;
 
-        <button mat-raised-button color="primary" routerLink="/homeinfo">Back</button>
+          <button mat-raised-button color="primary" routerLink="/institution">Back</button>
+        </div>
+        <div class="col-sm-6"></div>
       </div>
-      <div class="col-sm-6"></div>
-    </div>
 
-  </div>
-</form>
+    </div>
+  </form>
+</div>

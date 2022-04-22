@@ -30,6 +30,10 @@ export class ContactComponent implements OnInit {
         designation: res.data[0].designation,
         status: res.data[0].status,
         date: res.data[0].date,
+        school: res.data[0].school,
+        place: res.data[0].place,
+        rnum: res.data[0].rnum,
+
       })
     })
   }
@@ -40,7 +44,11 @@ export class ContactComponent implements OnInit {
     phone: new FormControl('', Validators.required),
     designation: new FormControl(''),
     status: new FormControl(''),
-    date: new FormControl('')
+    date: new FormControl(''),
+    place: new FormControl('', Validators.required),
+    school: new FormControl('', Validators.required),
+    rnum: new FormControl('', Validators.required),
+
 
   })
 
@@ -53,8 +61,9 @@ export class ContactComponent implements OnInit {
       this._contact.createcontact(this.contactForm.value).subscribe((res: any) => {
         console.log(res)
         this.contactForm.reset()
-        alert ("Saved Successfully..")
-        this.router.navigate(['/homecontact'])
+        alert("Saved Successfully..")
+        this.router.navigate(['/institution'])
+
       })
     }
     else {
@@ -69,8 +78,9 @@ export class ContactComponent implements OnInit {
     if (this.contactForm.valid) {
       this._contact.updatecontact(this.contactForm.value, this.getparamid).subscribe((res) => {
         console.log(res, 'resupdated..');
-        alert ("Updated Successfully..")
-        this.router.navigate(['/homecontact'])
+        alert("Updated Successfully..")
+        this.router.navigate(['/institution'])
+
       })
 
     }

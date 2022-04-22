@@ -26,6 +26,9 @@ export class DataService {
   apiUrlcontact = 'http://localhost:3000/contact'
   apiUrldocument = 'http://localhost:3000/document'
   apiUrlupdate = 'http://localhost:3000/tableupdate'
+  apiUrlstudent = 'http://localhost:3000/student'
+  apiUrlschool = 'http://localhost:3000/school'
+
 
   // saveContact(contact: any[]) {
   //   const tk = this._auth.getToken();
@@ -70,6 +73,10 @@ export class DataService {
     console.log(data, 'createapi=>')
     return this._httpClient.post(`${this.apiUrlupdate}`, data);
   }
+  createstudent(data: any): Observable<any> {
+    console.log(data, 'createapi=>')
+    return this._httpClient.post(`${this.apiUrlstudent}`, data);
+  }
 
 
   //get all data
@@ -91,6 +98,9 @@ export class DataService {
   }
   getinfo(): Observable<any> {
     return this._httpClient.get(`${this.apiUrlinfo}`)
+  }
+  getstudent(): Observable<any> {
+    return this._httpClient.get(`${this.apiUrlstudent}`);
   }
 
   // delete data
@@ -115,6 +125,10 @@ export class DataService {
   deleteinfo(id: any): Observable<any> {
     let ids = id;
     return this._httpClient.delete(`${this.apiUrlinfo}/${ids}`);
+  }
+  deletestudent(id: any): Observable<any> {
+    let ids = id;
+    return this._httpClient.delete(`${this.apiUrlstudent}/${ids}`);
   }
 
 
@@ -141,7 +155,14 @@ export class DataService {
     let ids = id;
     return this._httpClient.get(`${this.apiUrldocument}/${ids}`);
   }
-
+  getsinglestudent(id: any): Observable<any> {
+    let ids = id;
+    return this._httpClient.get(`${this.apiUrlstudent}/${ids}`);
+  }
+  getschoolstudent(id: any): Observable<any> {
+    let ids = id;
+    return this._httpClient.get(`${this.apiUrlschool}/${ids}`);
+  }
 
   //update data
   updateinfo(data: any, id: any): Observable<any> {
@@ -160,6 +181,10 @@ export class DataService {
   } updatecontact(data: any, id: any): Observable<any> {
     let ids = id;
     return this._httpClient.put(`${this.apiUrlcontact}/${ids}`, data)
+  }
+  updatestudent(data: any, id: any): Observable<any> {
+    let ids = id;
+    return this._httpClient.put(`${this.apiUrlstudent}/${ids}`, data)
   }
 
   httpPost(url: string, { }: any) {

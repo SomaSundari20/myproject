@@ -22,14 +22,24 @@ export class NotesComponent implements OnInit {
       this.noteForm.patchValue({
         notes: res.data[0].notes,
         date: res.data[0].date,
-       
+        school: res.data[0].school,
+        place: res.data[0].place,
+        rnum: res.data[0].rnum,
+        name: res.data[0].name
+
       })
     })
   }
 
   noteForm = new FormGroup({
     notes: new FormControl('', Validators.required),
-    date: new FormControl('')
+    date: new FormControl(''),
+    place: new FormControl('', Validators.required),
+    school: new FormControl('', Validators.required),
+    rnum: new FormControl('', Validators.required),
+    name: new FormControl(''),
+
+
   })
 
 
@@ -41,8 +51,9 @@ export class NotesComponent implements OnInit {
       this._notes.createnotes(this.noteForm.value).subscribe((res: any) => {
         console.log(res)
         this.noteForm.reset()
-        alert ("Saved Successfully..")
-        this.router.navigate(['/homenotes'])
+        alert("Saved Successfully..")
+        this.router.navigate(['/institution'])
+
       })
     }
     else {
@@ -58,8 +69,9 @@ export class NotesComponent implements OnInit {
     if (this.noteForm.valid) {
       this._notes.updatenotes(this.noteForm.value, this.getparamid).subscribe((res) => {
         console.log(res, 'resupdated..');
-        alert ("Updated Successfully..")
-        this.router.navigate(['/homenotes'])
+        alert("Updated Successfully..")
+        this.router.navigate(['/institution'])
+
       })
 
     }

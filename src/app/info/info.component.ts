@@ -83,7 +83,7 @@ export class InfoComponent implements OnInit {
         console.log(res)
         this.infoForm.reset()
         alert ("Saved Successfully..")
-        this.router.navigate(['/homeinfo'])
+        this.router.navigate(['/institution'])
       })
     }
     else {
@@ -98,7 +98,8 @@ export class InfoComponent implements OnInit {
       this._info.updateinfo(this.infoForm.value, this.getparamid).subscribe((res) => {
         console.log(res, 'resupdated..');
         alert ("Updated Successfully..")
-        this.router.navigate(['/homeinfo'])
+        this.router.navigate(['/institution'])
+    
       })
 
     }

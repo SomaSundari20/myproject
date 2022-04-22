@@ -1,78 +1,128 @@
-<mat-toolbar>
-  Student Details
-  <button mat-icon-button (click)="onBack()">X</button>
-</mat-toolbar>
-<br>
-<mat-stepper #stepper>
-  <mat-step>
-    <form>
+<div class="mat-elevation-z8">
+  <mat-toolbar class="mat-elevation-z8">
+    Student Details
+    <button mat-icon-button (click)="onBack()">X</button>
+  </mat-toolbar>
+  <br>
+  <div class="content">
+    <form [formGroup]="studentForm">
       <div class="row">
-
-        <ng-template matStepLabel>Fill out your name</ng-template>
         <mat-form-field class="centery">
           <mat-label>First Name</mat-label>
-          <input matInput>
+          <input matInput formControlName="fname">
         </mat-form-field><br>
         <mat-form-field class="centery">
           <mat-label>Last Name</mat-label>
-          <input matInput>
+          <input matInput formControlName="lname">
+        </mat-form-field><br>
+
+        <mat-form-field class="centery">
+          <mat-label>Date of Birth</mat-label>
+          <input type="date" matInput formControlName="dob">
         </mat-form-field><br>
         <mat-form-field class="centery">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
+          <mat-label>Age</mat-label>
+          <input matInput formControlName="age">
+        </mat-form-field><br>
+
+        <mat-form-field class="centery">
+          <mat-label>Father Name</mat-label>
+          <input matInput formControlName="father">
         </mat-form-field><br>
         <mat-form-field class="centery">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
+          <mat-label>Mother Name</mat-label>
+          <input matInput formControlName="mother">
+        </mat-form-field><br>
+
+        <mat-form-field class="centery">
+          <mat-label>Gender</mat-label>
+          <input matInput formControlName="gender">
         </mat-form-field><br>
         <mat-form-field class="centery">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
+          <mat-label>Place</mat-label>
+          <input matInput formControlName="place">
+        </mat-form-field><br>
+
+        <mat-form-field class="centery">
+          <mat-label>District</mat-label>
+          <input matInput formControlName="district">
         </mat-form-field><br>
         <mat-form-field class="centery">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
+          <mat-label>Pincode</mat-label>
+          <input matInput formControlName="pin">
+        </mat-form-field><br>
+
+        <mat-form-field class="centery">
+          <mat-label>Fathers Occupation</mat-label>
+          <input matInput formControlName="fatheroccupation">
         </mat-form-field><br>
         <mat-form-field class="centery">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
+          <mat-label>Father Number</mat-label>
+          <input matInput formControlName="fatherphone">
+        </mat-form-field><br>
+
+        <mat-form-field class="centery">
+          <mat-label>Mothers Occupation</mat-label>
+          <input matInput formControlName="motheroccupation">
         </mat-form-field><br>
         <mat-form-field class="centery">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="motherphone">
         </mat-form-field><br>
         <mat-form-field class="centery">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
+          <mat-label>Annual Income</mat-label>
+          <input matInput formControlName="totalincome">
+        </mat-form-field><br>
+        <mat-form-field class="centery  ">
+          <mat-label>School Name</mat-label>
+          <input matInput formControlName="school">
+        </mat-form-field><br>
+
+        <mat-form-field class="centery">
+          <mat-label>Rnumber</mat-label>
+          <input matInput formControlName="rnum">
         </mat-form-field><br>
         <mat-form-field class="centery">
-          <mat-label>Last Name</mat-label>
-          <input matInput>
+          <mat-label>Place</mat-label>
+          <input matInput formControlName="place2">
         </mat-form-field><br>
-      </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+        <mat-form-field class="centery">
+          <mat-label>Academic Year</mat-label>
+          <input matInput formControlName="year">
+        </mat-form-field><br>
+        <mat-form-field class="centery">
+          <mat-label>Class</mat-label>
+          <input matInput formControlName="class">
+        </mat-form-field><br>
+        <mat-form-field class="centery">
+          <mat-label>Course</mat-label>
+          <input matInput formControlName="course">
+        </mat-form-field><br>
+        <mat-form-field class="centery">
+          <mat-label>Obtained Mark</mat-label>
+          <input matInput formControlName="mark">
+          <mat-hint></mat-hint>
+        </mat-form-field><br>
+        <mat-form-field class="centery">
+          <mat-label>Total Mark</mat-label>
+          <input matInput formControlName="total">
+        </mat-form-field><br>
+        <mat-form-field class="centery">
+          <mat-label>Percentage</mat-label>
+          <input matInput formControlName="percent">
+        </mat-form-field><br>
+
+        <div>
+
+          <button mat-raised-button color="primary" (click)="studentForm.reset()">Reset</button>&nbsp;&nbsp;
+
+          <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!studentForm.valid"
+            (click)="onSave()">Save</button> &nbsp;&nbsp;
+          <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!studentForm.valid"
+            (click)="update()">Update</button>&nbsp;&nbsp;
+
+        </div>
       </div>
     </form>
-  </mat-step>
-  <mat-step label="Fill out your address">
-    <form>
-      <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Ex. 1 Main St, New York, NY">
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper>
+  </div>
+</div>

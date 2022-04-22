@@ -1,63 +1,26 @@
-<mat-toolbar color="primary">
-  Institution Details
-  <button mat-icon-button (click)="onBack()">X</button>
-</mat-toolbar>
-<nav>
-  <div class="conatiner">
-    <div class="form-control">
-      <div class="row">
-        <div class="form-group">
-          <mat-toolbar class="tab">
-            <mat-tab-group>
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <a routerLink="/homeinfo">
-                    <mat-icon>info</mat-icon>
-                    <button mat-button> Info</button>
-                  </a>
-                </ng-template>
-              </mat-tab>
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <a routerLink="/homeupdate">
-                    <mat-icon>update</mat-icon>
-                    <button mat-button> Update</button>
-                  </a>
-                </ng-template>
-              </mat-tab>
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <a routerLink="/homecontact">
-                    <mat-icon>person</mat-icon>
-                    <button mat-button> Contact</button>
-                  </a>
-                </ng-template>
-              </mat-tab>
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <a routerLink="/homedocument">
-                    <mat-icon>attachment</mat-icon>
-                    <button mat-button> Document</button>
-                  </a>
-                </ng-template>
-              </mat-tab>
-              <mat-tab>
-                <ng-template mat-tab-label>
-                  <a routerLink="/homenotes">
-                    <mat-icon>notes</mat-icon>
-                    <button mat-button> Notes</button>
-                  </a>
-                </ng-template>
-              </mat-tab>
-            </mat-tab-group>
-          </mat-toolbar>
-        </div>
-      </div>
-      <div class="content mat-elevation-z8">
-        <router-outlet></router-outlet><br>
-      </div>
+<div class="mat-elevation-z8">
+  <mat-toolbar color="primary">
+    Institution Details
+    <button mat-icon-button (click)="onBack()">X</button>
+  </mat-toolbar><br>
+  <mat-tab-group>
+    <mat-tab label="Info">
+      <app-homeinfo></app-homeinfo>
+    </mat-tab>
+    <mat-tab label="Yearly Update">
+      <app-homeupdate></app-homeupdate>
+    </mat-tab>
+    <mat-tab label="Contact">
+      <app-homecontact></app-homecontact>
+    </mat-tab>
+    <mat-tab label="Document">
+      <app-homedocument></app-homedocument>
+    </mat-tab>
+    <mat-tab label="Notes">
 
-    </div>
+      <app-homenotes></app-homenotes>
+    </mat-tab>
 
-  </div>
-</nav>
+  </mat-tab-group>
+  <br><br><br><br>
+</div>

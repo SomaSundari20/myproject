@@ -1,38 +1,54 @@
-<form [formGroup]="noteForm">
-  <mat-toolbar color="primary">NotesForm
-    <div>
-      <button mat-raised-button routerLink="/homenotes">X</button>
+<div class="mat-elevation-z8">
+  <form [formGroup]="noteForm">
+    <mat-toolbar color="primary">NotesForm
+      <div>
+        <button mat-raised-button routerLink="/institution">X</button>
+      </div>
+    </mat-toolbar>
+    <div class="content">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="center">
+            <mat-form-field class="center">
+              <input matInput placeholder="School Name" formControlName="school">
+            </mat-form-field>
+            <mat-form-field class="center">
+              <input matInput placeholder="Rnumber" formControlName="rnum">
+            </mat-form-field>
+            <mat-form-field class="center">
+              <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Place" formControlName="place">
+          </mat-form-field>
+          <mat-form-field class="center">
+            <input matInput placeholder="StudentName" formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="center">
+            <input matInput type="date" placeholder=" Created date" formControlName="date">
+          </mat-form-field>
+        </div>
+
+      </div><br><br>
+      <div class="row">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2">
+          <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!noteForm.valid"
+            (click)="Save(noteForm.value)">Save</button> &nbsp;&nbsp;
+          <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!noteForm.valid"
+            (click)="update()">Update</button>&nbsp;&nbsp;
+
+          <button mat-raised-button color="primary" routerLink="/institution">Back</button>
+        </div>
+
+        <div class="col-sm-6"></div>
+      </div>
+      <br><br>
+
     </div>
-  </mat-toolbar>
-  <div class="content">
-    <div class="row">
-      <div class="center">
-        <mat-form-field class="center">
-          <textarea matInput placeholder="Notes" formControlName="notes" name="notes"></textarea>
-        </mat-form-field>
-      </div>
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput type="date" placeholder=" Created date" formControlName="date" name="date">
-        </mat-form-field>
-      </div>
 
-    </div><br><br>
-    <div class="row">
-      <div class="col-sm-6"></div>
-      <div class="col-sm-2">
-        <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!noteForm.valid"
-          (click)="Save(noteForm.value)">Save</button> &nbsp;&nbsp;
-        <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!noteForm.valid"
-          (click)="update()">Update</button>&nbsp;&nbsp;
-
-        <button mat-raised-button color="primary" routerLink="/homenotes">Back</button>
-      </div>
-
-      <div class="col-sm-6"></div>
-    </div>
-    <br><br>
-
-  </div>
-
-</form>
+  </form>
+</div>

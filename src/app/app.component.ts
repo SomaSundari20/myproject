@@ -13,7 +13,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent implements OnInit {
   title = 'myproject';
-
+  Today = new Date()
 
   constructor(public _auth: AuthService, private router: Router, public dialog: MatDialog) { }
   @ViewChild(MatSidenav)
@@ -53,11 +53,11 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/login'])
   }
 
-  toggle(nav : any ){
-    if (nav.opened){
+  toggle(nav: any) {
+    if (nav.opened) {
       nav.close()
     }
-    else{
+    else {
       nav.open()
     }
   }

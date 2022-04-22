@@ -49,7 +49,10 @@ import { HomeinsideComponent } from './homeinside/homeinside.component';
 import { HomestuComponent } from './homestu/homestu.component';
 import { OldstuComponent } from './oldstu/oldstu.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSortModule } from '@angular/material/sort';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +76,8 @@ import {MatSortModule} from '@angular/material/sort';
     HomeinsideComponent,
     HomestuComponent,
     OldstuComponent,
+    FilterPipe,
+    SortPipe,
 
 
 
@@ -101,6 +106,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatGridListModule,
     MatSortModule,
     MatListModule,
+    MatDatepickerModule,
     FormsModule,
     MatPaginatorModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

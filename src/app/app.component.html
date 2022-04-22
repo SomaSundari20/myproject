@@ -11,10 +11,10 @@
   </mat-toolbar>
   <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" opened>
-      <!-- <button mat-button class="menu-button" routerLink="">
+      <button mat-button class="menu-button" routerLink="">
         <mat-icon>home</mat-icon>
         <span>Home</span>
-      </button><br> -->
+      </button><br>
       <button mat-button class="menu-button" (click)="onlogin()">
         <mat-icon> login</mat-icon>
         <span>Login</span>
@@ -28,27 +28,6 @@
 
 
 </ng-template>
-
-
-<!-- <mat-toolbar color="primary" class="mat-elevation-z8">
-    Institution Information
-    <div class="button">
-      <ng-template [ngIf]="!_auth.isauthenticated()">
-            <button mat-fab color="primary" (click)="onlogin()">
-          Login
-        </button>
-      </ng-template> &nbsp; &nbsp;
-      <ng-template [ngIf]="!_auth.isauthenticated()">
-        <button mat-fab color="primary" routerLink="">
-          <mat-icon>home</mat-icon>
-        </button>
-      </ng-template>
-      <ng-template [ngIf]="_auth.isauthenticated()">
-        <button mat-fab color="primary" (click)="onLogout()">Logout</button>
-      </ng-template>
-
-    </div>
-  </mat-toolbar> -->
 
 <ng-template [ngIf]="_auth.isauthenticated()">
   <mat-toolbar class="menu" color="primary">
@@ -110,18 +89,18 @@
         <button mat-menu-item routerLink="/notes">Add notes</button>
       </mat-menu>
       <br>
-      <!-- <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/old">Old Student</button>
-          <button mat-menu-item routerLink="/homestu">New Students</button>
+          <button mat-menu-item routerLink="/homestu">Ongoing Students</button>
         </mat-menu>
         <mat-icon>group</mat-icon>
         <span>Student</span>
       </button><br>
-      <button mat-button class="menu-button" routerLink="/student">
+      <button mat-button class="menu-button" routerLink="/homeinside">
         <mat-icon>reorder</mat-icon>
         <span>Rank</span>
-      </button><br> -->
+      </button><br>
       <button mat-button class="menu-button" (click)="onLogout()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>
@@ -132,9 +111,11 @@
     <mat-sidenav-content>
 
       <div class="content">
+      
         <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
+
 
 </ng-template>

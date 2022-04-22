@@ -45,10 +45,14 @@ const routes: Routes = [
   { path: 'homein', component: HomeinComponent },
   { path: 'institution', component: InstitutionComponent },
   { path: 'student', component: StudentComponent },
+  { path: 'student/:id', component: StudentComponent },
   { path: 'homeinside', component: HomeinsideComponent },
   { path: 'homeins', component: HomeinsComponent },
   { path: 'homestu', component: HomestuComponent },
-  {path:'old',component:OldstuComponent}
+  { path: 'old', component: OldstuComponent },
+  // { path: 'homeins/:id', component: HomeinsComponent },
+  { path: 'homeins/:rnum', component: HomeinsComponent },
+
 
 ];
 

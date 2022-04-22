@@ -1,36 +1,46 @@
-<form [formGroup]="documentForm">
-  <mat-toolbar color="primary">Document Form
-    <div>
-      <button mat-raised-button routerLink="/homedocument">X</button>
-    </div>
-  </mat-toolbar>
-  <div class="content">
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder=" Document Name" name="dname" formControlName="name">
-        </mat-form-field>
-        <mat-form-field class="center">
-          <input matInput type="url" placeholder="OneDrive URL" name="durl" formControlName="url">
-        </mat-form-field>
-
-        <mat-form-field class="center">
-          <input matInput type="date" placeholder=" Created date" name="cdate" formControlName="date">
-        </mat-form-field>
+<div class="mat-elevation-z8">
+  <form [formGroup]="documentForm">
+    <mat-toolbar color="primary">Document Form
+      <div>
+        <button mat-raised-button routerLink="/institution">X</button>
       </div>
+    </mat-toolbar>
+    <div class="content">
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="School Name" formControlName="school">
+          </mat-form-field><br>
+          <mat-form-field class="center">
+            <input matInput placeholder="Rnumber" formControlName="rnum">
+          </mat-form-field><br>
+          <mat-form-field class="center">
+            <input matInput placeholder="Place" formControlName="place">
+          </mat-form-field><br>
+        </div>
 
-    </div><br><br>
-    <div class="col-sm-2">
-      <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!documentForm.valid"
-        (click)="Save(documentForm.value)">Save</button> &nbsp;&nbsp;
-      <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!documentForm.valid"
-        (click)="update()">Update</button>&nbsp;&nbsp;
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder=" Document Name" name="dname" formControlName="name">
+          </mat-form-field>
+          <mat-form-field class="center">
+            <input matInput type="url" placeholder="OneDrive URL" name="durl" formControlName="url">
+          </mat-form-field>
+          <mat-form-field class="center">
+            <input matInput type="date" placeholder=" Created date" name="cdate" formControlName="date">
+          </mat-form-field>
+        </div>
+      </div><br><br>
+      <div class="col-sm-2">
+        <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!documentForm.valid"
+          (click)="Save(documentForm.value)">Save</button> &nbsp;&nbsp;
+        <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!documentForm.valid"
+          (click)="update()">Update</button>&nbsp;&nbsp;
 
-      <button mat-raised-button color="primary" routerLink="/homedocument">Back</button>
+        <button mat-raised-button color="primary" routerLink="/institution">Back</button>
+      </div>
+      <div class="col-sm-6"></div>
     </div>
-    <div class="col-sm-6"></div>
-  </div>
-  <br><br>
-
-
-</form>
+    <br><br>
+  </form>
+</div>

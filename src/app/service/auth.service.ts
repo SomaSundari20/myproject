@@ -53,15 +53,7 @@ export class AuthService {
       }
     });
 
-    // firebase.auth().currentUser?.getIdToken()
-    //   .then(
-    //     (token: string | any) => {
-    //       this.currentToken = token;
-    //     }
-    //   )
-    //   .catch((error: any) => {
-    //     console.log(error)
-    //   })
+
   }
 
   isauthenticated() {

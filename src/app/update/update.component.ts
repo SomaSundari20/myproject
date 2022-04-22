@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../service/data.service';
-import { Database, set, ref, onValue } from '@angular/fire/database';
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
@@ -28,6 +26,10 @@ export class UpdateComponent implements OnInit {
         cash: res.data[0].cash,
         hname: res.data[0].hname,
         date: res.data[0].date,
+        school: res.data[0].school,
+        place: res.data[0].place,
+        rnum: res.data[0].rnum,
+
       })
     })
   }
@@ -40,7 +42,11 @@ export class UpdateComponent implements OnInit {
     ppt: new FormControl(''),
     cash: new FormControl(''),
     hname: new FormControl(''),
-    date: new FormControl('')
+    date: new FormControl(''),
+    school: new FormControl('', Validators.required),
+    rnum: new FormControl('', Validators.required),
+    place: new FormControl('', Validators.required),
+
   })
 
 
@@ -50,8 +56,9 @@ export class UpdateComponent implements OnInit {
       this._update.createupdate(this.updateForm.value).subscribe((res: any) => {
         console.log(res)
         this.updateForm.reset()
-        alert ("Saved Successfully..")
-        this.router.navigate(['/homeupdate'])
+        alert("Saved Successfully..")
+        this.router.navigate(['/institution'])
+
       })
     }
     else {
@@ -66,8 +73,9 @@ export class UpdateComponent implements OnInit {
     if (this.updateForm.valid) {
       this._update.updateupdate(this.updateForm.value, this.getparamid).subscribe((res) => {
         console.log(res, 'resupdated..');
-        alert ("Updated Successfully..")
-        this.router.navigate(['/homeupdate'])
+        alert("Updated Successfully..")
+        this.router.navigate(['/institution'])
+
       })
 
     }

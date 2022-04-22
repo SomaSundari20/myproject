@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
-import { Database, set, ref, onValue } from '@angular/fire/database';
 
 @Component({
   selector: 'app-mail',
@@ -12,7 +11,7 @@ import { Database, set, ref, onValue } from '@angular/fire/database';
 })
 export class MailComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, public router: Router, public http: DataService, public database: Database) { }
+  constructor(public dialog: MatDialog, public router: Router, public http: DataService) { }
 
 
   ngOnInit(): void { }
@@ -25,14 +24,7 @@ export class MailComponent implements OnInit {
   })
 
   register(value: any) {
-    set(ref(this.database, 'mailForm/' + value.name), {
-      name: value.name,
-      phone: value.phone,
-      email: value.email,
-      Place: value.Place,
-      Message: value.Message,
-    });
-    alert("Form Submitted Successfully..!")
+
     let user = {
       name: this.contactForm.get('name')?.value,
       email: this.contactForm.get('email')?.value

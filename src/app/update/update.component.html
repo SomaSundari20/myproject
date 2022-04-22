@@ -1,81 +1,91 @@
-<form [formGroup]="updateForm">
-  <mat-toolbar color="primary">UpdateForm
-    <div>
-      <button mat-raised-button routerLink="/homeupdate" >X</button>
-    </div>
-  </mat-toolbar>
-  <div class="content">
-    <div class="row">
-      <div class="col-sm-6">
-        <mat-form-field class="center">
-          <input matInput placeholder="Year" formControlName="year" name="year">
-        </mat-form-field><br>
-        <div class="row">
-          <div class="col-sm-6">
-            <label mat-label>Is visited</label>
-          </div>
-          <div class="col-sm-6">
-            <mat-radio-group color="primary" aria-label="Select an option" formControlName="visit" name="visited">
-              <mat-radio-button value="Yes">Yes</mat-radio-button>
-              <mat-radio-button value="No">No</mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div><br>
-        <div class="row">
-          <div class="col-sm-6">
-            <label mat-label>PPT Presented</label>
-          </div>
-          <div class="col-sm-6">
-            <mat-radio-group color="primary" aria-label="Select an option" formControlName="ppt" name="ppt">
-              <mat-radio-button value="Yes">Yes</mat-radio-button>
-              <mat-radio-button value="No">No</mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div><br>
-        <div class="row">
-          <div class="col-sm-6">
-            <label mat-label>Cash Received</label>
-          </div>
-          <div class="col-sm-6">
-            <mat-radio-group color="primary" aria-label="Cash Received" formControlName="cash" name="cash">
-              <mat-radio-button value="Yes">Yes</mat-radio-button>
-              <mat-radio-button value="No">No</mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div><br>
-
-
-        <mat-form-field class="center">
-          <input matInput placeholder="Response" formControlName="response" name="response">
-        </mat-form-field>
-
-        <mat-form-field class="center">
-          <input matInput placeholder="Head Name" formControlName="hname" name="hname">
-        </mat-form-field>
-        <mat-form-field class="center">
-          <input matInput placeholder="Process Status" formControlName="status" name="status">
-        </mat-form-field>
-        <mat-form-field class="center">
-          <input matInput type="date" placeholder="Created date" formControlName="date" name="date">
-        </mat-form-field>
+<div class="mat-elevation-z8">
+  <form [formGroup]="updateForm">
+    <mat-toolbar color="primary">UpdateForm
+      <div>
+        <button mat-raised-button routerLink="/institution">X</button>
       </div>
+    </mat-toolbar>
+    <div class="content">
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="Year" formControlName="year" name="year">
+          </mat-form-field><br>
+          <div class="row">
+            <div class="col-sm-6">
+              <label mat-label>Is visited</label>
+            </div>
+            <div class="col-sm-6">
+              <mat-radio-group color="primary" aria-label="Select an option" formControlName="visit" name="visited">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-sm-6">
+              <label mat-label>PPT Presented</label>
+            </div>
+            <div class="col-sm-6">
+              <mat-radio-group color="primary" aria-label="Select an option" formControlName="ppt" name="ppt">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-sm-6">
+              <label mat-label>Cash Received</label>
+            </div>
+            <div class="col-sm-6">
+              <mat-radio-group color="primary" aria-label="Cash Received" formControlName="cash" name="cash">
+                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div><br>
+          <mat-form-field class="center">
+            <input matInput placeholder="Response" formControlName="response" name="response">
+          </mat-form-field>
+          <mat-form-field class="center">
+            <input matInput placeholder="Process Status" formControlName="status" name="status">
+          </mat-form-field>
 
-    </div>
-    <br><br>
-    <div class="row">
-      <div class="col-sm-6"></div>
-      <div class="col-sm-2">
-        <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!updateForm.valid"
-          (click)="Save(updateForm.value)">Save</button> &nbsp;&nbsp;
-        <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!updateForm.valid"
-          (click)="update()">Update</button>&nbsp;&nbsp;
-
-        <button mat-raised-button color="primary" routerLink="/homeupdate">Back</button>
-
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="center">
+            <input matInput placeholder="School Name" formControlName="school">
+          </mat-form-field><br>
+          <mat-form-field class="center">
+            <input matInput placeholder="Rnumber" formControlName="rnum">
+          </mat-form-field><br>
+          <mat-form-field class="center">
+            <input matInput placeholder="Place" formControlName="place">
+          </mat-form-field><br>
+          <mat-form-field class="center">
+            <input matInput placeholder="Head Name" formControlName="hname" name="hname">
+          </mat-form-field>
+          <mat-form-field class="center">
+            <input matInput type="date" placeholder="Created date" formControlName="date" name="date">
+          </mat-form-field>
+        </div>
       </div>
-      <div class="col-sm-6"></div>
+      <br><br>
+      <div class="row">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2">
+          <button *ngIf="!getparamid" mat-raised-button color="primary" [disabled]="!updateForm.valid"
+            (click)="Save(updateForm.value)">Save</button> &nbsp;&nbsp;
+          <button *ngIf="getparamid" mat-raised-button color="primary" [disabled]="!updateForm.valid"
+            (click)="update()">Update</button>&nbsp;&nbsp;
+
+          <button mat-raised-button color="primary" routerLink="/institution">Back</button>
+
+        </div>
+        <div class="col-sm-6"></div>
+      </div>
+      <br><br>
+
     </div>
-    <br><br>
-  
-  </div>
-</form>
+  </form>
+</div>
