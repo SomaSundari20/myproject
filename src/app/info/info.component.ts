@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Database, set, ref, onValue } from '@angular/fire/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../service/data.service';
 @Component({

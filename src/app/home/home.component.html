@@ -1,6 +1,29 @@
-<button mat-raised-button color="primary" (click)="onClick()"> Make Request </button>
-<button mat-raised-button ><a href="https://drive.google.com/file/d/1PkJ54SCG00tE_VvwTunRZ_kl3i6WeHrT/view?usp=sharing"
-    download>Download File</a></button>
+<mat-toolbar>
+  HelpKids Trust
+  <button mat-mini-fab color="warm"><a
+      href="https://drive.google.com/file/d/1PkJ54SCG00tE_VvwTunRZ_kl3i6WeHrT/view?usp=sharing" download>
+      <mat-icon>download</mat-icon>
+    </a></button>
+
+</mat-toolbar>
+
+<!-- https://drive.google.com/file/d/1dm9jYeknJifjeczloE7xxjrm9iL5ZpAT/view?usp=sharing -->
 
 
-    <!-- https://drive.google.com/file/d/1dm9jYeknJifjeczloE7xxjrm9iL5ZpAT/view?usp=sharing -->
+<button mat-raised-button color="primary" (click)="onClick()"> Make Request </button><br><br>
+
+
+<mat-form-field>
+  <mat-label>Select an year</mat-label>
+  <mat-select [formControl]="schoolControl" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let obj of school" [value]="obj">
+      {{obj.name}}
+    </mat-option>
+  </mat-select>
+
+  <mat-error *ngIf="schoolControl.hasError('required')">Please choose an</mat-error>
+</mat-form-field><br><br>
+<mat-card-content appearance="fill">
+  <mat-hint>{{schoolControl.value?.disc}}</mat-hint>
+</mat-card-content>

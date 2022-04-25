@@ -29,17 +29,16 @@ export class HomeinsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort | any;
   constructor(public _info: DataService, public router: Router, public rout: ActivatedRoute, public _student: DataService) { }
   student: any
-  totalincome: any
   
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'mark', 'percent', 'income']
+  
   ngOnInit(): void {
 
     this.getparamid1 = this.rout.snapshot.paramMap.get('rnum');
     this._student.getschoolstudent(this.getparamid1).subscribe((res) => {
       console.log(res, 'res==>');
       this.student = new MatTableDataSource(res.data);
-
-
     })
 
   }
